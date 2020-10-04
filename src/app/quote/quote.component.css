@@ -1,0 +1,67 @@
+card-footer {
+    position: relative;
+    height: 7vh;
+  }
+  
+  .card-body {
+    position: relative;
+  }
+  
+  .card {
+    margin-bottom: 20px;
+    min-height: 40vh;
+  }
+  
+  .like {
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .dislike {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .days {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .details-button {
+    position: absolute;
+    left: 10px;
+    bottom: 8px;
+  }
+  
+  .fa-thumbs-down {
+    color: black;
+  }
+  
+  .fa-heart {
+    color: #ca4432;
+  }
+  
+  .fa-trophy {
+    color: goldenrod;
+  }
+  
+  .fa-info-circle {
+    color: #338596;
+  }
+  
+  .fa-info-circle:hover {
+    color: black;
+  }
+  
+  i {
+    cursor: pointer;
+  }
+  
+  h5{
+    font-size: 1em;
+  }
