@@ -1,1 +1,54 @@
-<p>quote-form works!</p>
+<h5>Add New Quote</h5>
+<hr>
+<form (ngSubmit)='addQuote()'#quoteForm='ngForm'>
+  <div class="form-group">
+    <label for="quote-text">Quote Text</label>
+    <input
+      type="text"
+      class="form-control"
+      id="quoteText"
+      name='quoteText'
+      [(ngModel)]='newQuote.text'
+      placeholder="Enter Quote"
+      #quoteText = 'ngModel'
+      required
+    />
+    <div [hidden]="quoteText.valid || quoteText.pristine" class="alert alert-danger">
+      <p>Text is required</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="author">Author</label>
+    <input
+      type="text"
+      class="form-control"
+      id="author"
+      name='author'
+      [(ngModel)]='newQuote.author'
+      placeholder="Enter Author"
+      #author = 'ngModel'
+      required
+    />
+    <div [hidden]="author.valid || author.pristine" class="alert alert-danger">
+      <p>Author is required</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="submitter">Submitter</label>
+    <input
+      type="text"
+      class="form-control"
+      id="submitter"
+      name='submitter'
+      [(ngModel)]='newQuote.submitter'
+      placeholder="Enter Submitter"
+      #submitter = 'ngModel'
+      required
+    />
+    <div [hidden]="submitter.valid || submitter.pristine" class="alert alert-danger">
+      <p>Submitter is required</p>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
