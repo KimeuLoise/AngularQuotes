@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { resetFakeAsyncZone } from '@angular/core/testing';
+import { Quote } from '../quote';
 
 @Component({
   selector: 'app-quote-form',
   templateUrl: './quote-form.component.html',
-  styleUrls: ['./quote-form.component.css']
+  styleUrls: ['./quote-form.component.css'],
 })
 export class QuoteFormComponent implements OnInit {
+  newQuote: Quote = new Quote(0, '', '', '', new Date());
 
-  constructor() { }
+  @Output() createQuote = new EventEmitter<Quote>();
 
-  ngOnInit(): void {
+  addQuote() {
+    this.createQuote.emit(this.newQuote);
+    this.newQuote = new Quote(0, '', '', '', new Date());
   }
 
+  constructor() {}
+
+  ngOnInit(): void {}
 }
