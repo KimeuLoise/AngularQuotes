@@ -1,1 +1,71 @@
-<p>quote works!</p>
+<div class="row">
+    <div class="row col-md-8">
+      <div *ngFor="let quote of quotes; let i = index" class="col-md-6">
+        <div class="card text-center">
+          <div class="card-header">Quote {{ quote.id }}</div>
+          <div class="card-body">
+            <h5 class="card-title">
+              <i
+                *ngIf="quote.upvote == highestUpVote().upvote && quote.upvote > 0"
+                class="fas fa-trophy"
+              ></i>
+              {{ quote.text | quotationMark }}
+            </h5>
+  
+            <div class="details-button">
+              <!-- <button
+                *ngIf="!quote.showDetails"
+                class="btn btn-info"
+                (click)="toggleDetails(i)"
+              >
+                Show Details
+              </button> -->
+              <i
+                *ngIf="!quote.showDetails"
+                class="fas fa-info-circle fa-2x"
+                (click)="toggleDetails(i)"
+              ></i>
+              <button
+                *ngIf="quote.showDetails"
+                class="btn btn-info"
+                (click)="toggleDetails(i)"
+              >
+                Hide Details
+              </button>
+              <!-- <i
+                *ngIf="quote.showDetails"
+                class="fas fa-chevron-up fa-lg"
+                (click)="toggleDetails(i)"
+              ></i> -->
+            </div>
+            <app-quote-detail
+              *ngIf="quote.showDetails"
+              [quote]="quote"
+              (deleteQuote)="delete($event, i)"
+            ></app-quote-detail>
+            <br />
+          </div>
+          <div class="card-footer text-muted">
+            <div class="days">
+              <small>
+                Added <strong>{{ quote.dateAdded | dateTransform }}</strong> days
+                ago
+              </small>
+            </div>
+            <div class="like">
+              <i class="fas fa-heart" (click)="addUpVote(i)"></i>
+              {{ quote.upvote }}
+            </div>
+            <div class="dislike">
+              <i class="fas fa-thumbs-down" (click)="addDownVote(i)"></i>
+              {{ quote.downvote }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <app-quote-form (createQuote)="addNewQuote($event)"></app-quote-form>
+    </div>
+  </div>
+  
