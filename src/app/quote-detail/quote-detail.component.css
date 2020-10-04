@@ -1,0 +1,13 @@
+.delete-button {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+  }
+  
+  .fa-trash-alt {
+    color: #ca4432;
+  }
+  
+  i {
+    cursor: pointer;
+  }
