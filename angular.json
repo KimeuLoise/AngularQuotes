@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "AngularQuotes"
+    }
+  },
+  "defaultProject": "AngularQuotes",
+  "cli": {
+    "analytics": "4a04f898-24d3-4b0a-9c38-24a8be378b9c"
+  }
 }
